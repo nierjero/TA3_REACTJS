@@ -1,8 +1,6 @@
-// src/App.js
-
 import React from 'react';
 import Card from './components/Card';
-import './App.css'; // Importa estilos globales si los tienes
+import './App.css';
 
 const App = () => {
     const cardsData = [
@@ -21,25 +19,28 @@ const App = () => {
             endDate: "2024-11-30"
         },
         {
-          title: "Card 3",
-          description: "Descripción 3",
-          assignedPerson: "Venom",
-          startDate: "2024-10-01",
-          endDate: "2024-11-01"
+            title: "Card 3",
+            description: "Descripción 3",
+            assignedPerson: "Venom",
+            startDate: "2024-10-01",
+            endDate: "2024-11-01"
         }
     ];
 
     return (
         <div className="App">
             {cardsData.map((card, index) => (
-                <Card
-                    key={index} // Usa un índice o una clave única
-                    title={card.title}
-                    description={card.description}
-                    assignedPerson={card.assignedPerson}
-                    startDate={card.startDate}
-                    endDate={card.endDate}
-                />
+                <Card key={index}>
+                    <h2 className="card-title">{card.title}</h2>
+                    <p className="card-description">{card.description}</p>
+                    <p className="card-assigned-person">
+                        <strong>Persona asignada:</strong> {card.assignedPerson}
+                    </p>
+                    <p className="card-dates">
+                        <strong>Fecha inicio:</strong> {card.startDate} <br />
+                        <strong>Fecha de fin:</strong> {card.endDate}
+                    </p>
+                </Card>
             ))}
         </div>
     );
