@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './components/Card';
+import Input from './components/Input';
 import './App.css';
 
 const App = () => {
+    const [inputText, setInputText] = useState('');
+
     const cardsData = [
         {
             title: "Card 1",
@@ -29,6 +32,9 @@ const App = () => {
 
     return (
         <div className="App">
+            <h1>Mi Aplicación</h1>
+            <Input onChange={setInputText} />
+            <h2>Tarjetas</h2>
             {cardsData.map((card, index) => (
                 <Card key={index}>
                     <h2 className="card-title">{card.title}</h2>
@@ -42,6 +48,8 @@ const App = () => {
                     </p>
                 </Card>
             ))}
+            <h2>Texto ingresado:</h2>
+            <p>{inputText}</p>
         </div>
     );
 };
